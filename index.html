@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <link rel="stylesheet" href="css/main.css">
+        <title>My VueJS app</title>
+    </head>
+    <body>
+        <div id="vueApp">
+            <h1 class="welcome">{{welcomeMessage}}</h1>
+            <h2 class="instructions">Click Enter To Add To the To-Do List</h2>
+            <input class="welcome" v-model="newItem" v-on:keyup.enter = "addItem"/>
+
+            <ul v-for = "(list, index) in lists" v-bind:key = "list.id">
+              <li>
+                {{list.item}}
+                <br>
+                {{list.status}}
+                <br>
+
+                <!-- Splice deletes a list item -->
+                <button v-on:click = "remove(list)">Delete</button>
+                <button v-on:click = "status(index)">Change Status</button>
+              </li>
+            </ul>
+        </div>
+
+
+        <script src="js/vue.min.js"></script>
+        <script src="js/main.js"></script>
+    </body>
+</html>

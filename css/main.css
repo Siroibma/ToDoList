@@ -1,6 +1,6 @@
 h1.welcome {
     text-align: center;
-
+    font-family: 'Noto Sans', sans-serif;
 }
 
 
@@ -20,15 +20,25 @@ input.welcome {
     padding: 10px;
     font-size: 24px;
     text-align: center;
+    font-family: 'Noto Sans', sans-serif;
 }
 
 .jumbotron {
-  padding: 4rem 2rem;
-  margin-bottom: 2rem;
+  padding: 2rem 2rem;
+  margin-bottom: 1rem;
   background-color: var(--bs-light);
   border-radius: .3rem;
+  font-family: 'Noto Sans', sans-serif;
 }
 
 body {
   background-color: #84CEEB;
+}
+
+ul {
+  padding-top: 5px;
+}
+
+li {
+  font-family: 'Noto Sans', sans-serif;
 }

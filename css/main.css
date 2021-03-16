@@ -3,6 +3,18 @@ h1.welcome {
 	font-family: 'Noto Sans', sans-serif;
 }
 
+h6.swap {
+  text-align: center;
+}
+
+#status {
+  color: red;
+}
+
+form > input {
+  margin-bottom: 5px;
+}
+
 button:hover {
 	opacity: .7;
 }

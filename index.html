@@ -15,15 +15,17 @@
         <div class="jumbotron">
           <h1 class="welcome">{{welcomeMessage}}</h1>
           <h2 class="instructions">Click Enter To Add To the To-Do List</h2>
+          <h6 class = "swap"> Enter the two positions you want swapped </h6>
         </div>
          <input class="welcome" v-model="newItem" v-on:keyup.enter = "addItem"/>
          <div class="row justify-content-center">
-            <div class="col-2">
+            <div class="col-3">
                <ul v-for = "(list, index) in lists" v-bind:key = "list.id" class = "list-group list-group-horizontal-xxl">
                   <li class="list-group-item">
                      Task: {{list.item}}
                      <br>
-                     Status: {{list.status}}
+                     Status:
+                     <span>{{list.status}}</span>
                      <br>
                      <!-- Splice deletes a list item -->
                      <button v-on:click = "remove(list)" class="btn btn-dark">Delete</button>
@@ -31,6 +33,19 @@
                   </li>
                </ul>
             </div>
+
+
+         </div>
+         <div class="col-3 bg-white rounded" style="margin-top: 10px; display:block;">
+           <form id = "positions" method="post" onsubmit="return false" >
+             <label for="Position" class="form-label">Position 1</label>
+             <input type="text" id="Slot1" name="Slot1" class="form-control" required>
+             <br>
+             <label for="Position" class="form-label">Position 2</label>
+             <input type="text" id="Slot2" name="Slot2" class="form-control" required>
+             <br>
+             <button v-on:click = "reorder()" class="btn btn-dark">Change Status</button>
+           </form>
          </div>
       </div>
       <script src="js/vue.min.js"></script>

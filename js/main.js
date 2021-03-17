@@ -28,7 +28,7 @@ let app = new Vue({
         }
       },
 
-      status:function(index) {
+      change_status:function(index) {
         //var index_color = index + 1;
         if(this.lists[index].status == "Incomplete"){
           this.lists[index].status = "Complete"
@@ -49,16 +49,27 @@ let app = new Vue({
 
       },
 
+      /*Function: reorder()
+      / Variables: form, hold, input_1, input_2
+      / Purpose: Takes the information of two forms and swaps the values
+      */
+
       reorder:function() {
         var form = document.getElementById("positions");
-        var hold = form.elements[0].value;
-        var input_1 = form.elements[0].value;
-        var input_2 = form.elements[1].value;
+        var input_1 = form.elements[0].value - 1;
 
-        this.lists[input_1] = this.lists[input_2];
+        var input_2 = form.elements[1].value - 1;
+
+        var hold = input_2;
+
+        //[this.lists[input_1], this.lists[input_2]] = [this.lists[input_2], this.lists[input_1]];
+
+        this.$set(this.lists, this.lists[input_1].id, this.lists[input_2]);
+        this.$set(this.lists, this.lists[input_2], this.lists[input_1]);
+        //this.$set(this.lists, this.lists[input_1].status, this.lists[input_2].status);
+        //this.$set(this.lists, this.lists[input_1].item, this.lists[input_2].item);
 
 
-        alert(input_2);
       },
 
     },

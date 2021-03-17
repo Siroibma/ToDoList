@@ -29,7 +29,7 @@
                      <br>
                      <!-- Splice deletes a list item -->
                      <button v-on:click = "remove(list)" class="btn btn-dark">Delete</button>
-                     <button v-on:click = "status(index)" class="btn btn-dark">Change Status</button>
+                     <button v-on:click = "change_status(index)" class="btn btn-dark">Change Status</button>
                   </li>
                </ul>
             </div>
@@ -44,9 +44,10 @@
              <label for="Position" class="form-label">Position 2</label>
              <input type="text" id="Slot2" name="Slot2" class="form-control" required>
              <br>
-             <button v-on:click = "reorder()" class="btn btn-dark">Change Status</button>
+             <button v-on:click = "reorder()" class="btn btn-dark">Swap Positions</button>
            </form>
          </div>
+
       </div>
       <script src="js/vue.min.js"></script>
       <script src="js/main.js"></script>

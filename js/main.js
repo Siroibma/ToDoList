@@ -56,6 +56,8 @@ let app = new Vue({
 
       reorder:function() {
         var form = document.getElementById("positions");
+
+        var place_deleter = form.length;
         var input_1 = form.elements[0].value - 1;
 
         var input_2 = form.elements[1].value - 1;
@@ -63,9 +65,9 @@ let app = new Vue({
         var hold = input_2;
 
         //[this.lists[input_1], this.lists[input_2]] = [this.lists[input_2], this.lists[input_1]];
+        this.lists.splice(input_1, 0, this.lists[input_2]);
+        this.lists.splice(input_2, 1, this.lists[input_1]);
 
-        this.$set(this.lists, this.lists[input_1].id, this.lists[input_2]);
-        this.$set(this.lists, this.lists[input_2], this.lists[input_1]);
         //this.$set(this.lists, this.lists[input_1].status, this.lists[input_2].status);
         //this.$set(this.lists, this.lists[input_1].item, this.lists[input_2].item);
 

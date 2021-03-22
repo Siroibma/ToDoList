@@ -41,6 +41,8 @@ let app = new Vue({
           //document.getElementById("#1").style.color = 'Red';
         }
 
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(this.lists))
+
       },
 
       remove:function(list) {
@@ -62,10 +64,15 @@ let app = new Vue({
       },
 
       swap_down:function(index) {
+        array_length = this.lists.length;
+        if (index + 1 == array_length){
+          alert("You Cannot Swap down since you exceed the list length");
+        }
+        else {
           let rows = [this.lists[index], this.lists[index + 1]];
           this.lists.splice(index, 2, rows[1], rows[0]);
-
-          localStorage.setItem(STORAGE_KEY, JSON.stringify(this.lists))
+        }
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(this.lists))
 
       },
 

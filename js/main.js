@@ -49,15 +49,33 @@ let app = new Vue({
 
       },
 
+      swap_up:function(index) {
+        if(index == 0){
+          alert('Cannot Swap Up')
+        }
+        else {
+          this.lists.splice(index - 1, 2, this.lists[index], this.lists[index - 1])
+        }
+
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(this.lists))
+
+      },
+
+      swap_down:function(index) {
+          let rows = [this.lists[index], this.lists[index + 1]];
+          this.lists.splice(index, 2, rows[1], rows[0]);
+
+          localStorage.setItem(STORAGE_KEY, JSON.stringify(this.lists))
+
+      },
+
       /*Function: reorder()
       / Variables: form, hold, input_1, input_2
       / Purpose: Takes the information of two forms and swaps the values
-      */
+
 
       reorder:function() {
         var form = document.getElementById("positions");
-
-        var place_deleter = form.length;
         var input_1 = form.elements[0].value - 1;
 
         var input_2 = form.elements[1].value - 1;
@@ -65,14 +83,20 @@ let app = new Vue({
         var hold = input_2;
 
         //[this.lists[input_1], this.lists[input_2]] = [this.lists[input_2], this.lists[input_1]];
-        this.lists.splice(input_1, 0, this.lists[input_2]);
-        this.lists.splice(input_2, 1, this.lists[input_1]);
+
+        let rows = [this.lists[input_1], this.lists[input_2]];
+
+        this.lists.splice(input_1, 2, rows[1], rows[0]);
+
+        //then we push the 1st object to the second position but we gotta remember that the indexes change
+        //this.lists.splice(input_2, 1, this.lists[input_1]);
 
         //this.$set(this.lists, this.lists[input_1].status, this.lists[input_2].status);
         //this.$set(this.lists, this.lists[input_1].item, this.lists[input_2].item);
 
 
       },
+      */
 
     },
     mounted() {

@@ -30,22 +30,13 @@
                      <!-- Splice deletes a list item -->
                      <button v-on:click = "remove(list)" class="btn btn-dark">Delete</button>
                      <button v-on:click = "change_status(index)" class="btn btn-dark">Change Status</button>
+                     <button v-on:click = "swap_up(index)" class="btn btn-dark">Shift Up</button>
+                     <button v-on:click = "swap_down(index)" class="btn btn-dark">Shift Down</button>
                   </li>
                </ul>
             </div>
 
 
-         </div>
-         <div class="col-3 bg-white rounded" style="margin-top: 10px; display:block;">
-           <form id = "positions" method="post" onsubmit="return false" >
-             <label for="Position" class="form-label">Position 1</label>
-             <input type="text" id="Slot1" name="Slot1" class="form-control" required>
-             <br>
-             <label for="Position" class="form-label">Position 2</label>
-             <input type="text" id="Slot2" name="Slot2" class="form-control" required>
-             <br>
-             <button v-on:click = "reorder()" class="btn btn-dark">Swap Positions</button>
-           </form>
          </div>
 
       </div>
